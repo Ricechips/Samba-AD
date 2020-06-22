@@ -9,3 +9,4 @@
 >*wget http://www.ring.gr.jp/pub/net/gnupg/gnutls/v3.6/gnutls-3.6.4.tar.xz* 编译报错:没有Nettle<br>
 >*wget ftp://ftp.gnu.org/gnu/nettle/nettle-3.4.1.tar.gz* make报错:*make[1]: *** [aes-decrypt-internal.o] 错误 127*<br>
 >起先以为是gcc没装好,反复重装和清除编译都无效,发现躲着一行*/bin/sh: m4: not found*,原来是m4这个包没装<br>
+>[教程](https://blog.csdn.net/HideInTime/article/details/94600815)
