@@ -17,3 +17,4 @@
 >后来跟着官方文档走,想说应该没问题了,结果在交互式时报错(libgnutls.so.30)找不到,我寻思我却是也没装这个,而是用的gnutls-devel阿,在rpmfind找这个包,发现没有centos7版本的,8和6都有,gg。<br><br>
 >反复思考到底哪里出了问题,会不会是我本身系统部署了太多环境(cacti,opennebula...)然后什么东西冲突了?会不会是sssd服务被我搞坏了?算了,我重装一个干干净净的centos试试好了(虚拟机克隆半分钟出一台),对了,Samba的版本!一开始是用的4.1.12,后来用最新的4.12和4.10,这次搞下4.4.10好了。<br><br>
 >成了,一路顺畅没有任何报错,起飞。
+![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/11.PNG)
