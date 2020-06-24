@@ -25,3 +25,8 @@
 /usr/local/samba/etc/smb.conf 文件共享目录及配置
 /usr/local/samba/sbin/samba  启动samba   (killall samba)
 ```
+## 最后的最后
+>成功部署了samba+ad+dc后，用的管理工具是windows自带的RSAT（具体来说是Active Directory Users and Computers）<br><br>
+>新建了一台准备入狱（域）的win10,dns调好后发现用用户的帐号密码怎么登都报错（计算机名错误），很奇怪，后使用administrator入域成功，切换用户。（原来本来加域流程就是要这么走的）<br><br>
+>在samba端创建一share文件夹并设好权限,管理员访问文件ok，用户怎么都访问不了（明明文件夹在管理员界面权限已经开放），后发现是samba那边share虽然设好了，但其上级/home/aoc/share权限问题。<br><br>
+![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/Screenshot%20from%202020-06-24%2017-42-34.png)
