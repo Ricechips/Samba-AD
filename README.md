@@ -65,4 +65,4 @@ kinit administrator@TESTAD.LOCAL
 ```
 >windows ipv4的dns设成域服务器并加域<br>
 >linux共享目录映射到windows下磁盘
-![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/Screenshot%20from%202020-06-24%2017-42-34)
+![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/IMG_4709.JPG)
