@@ -30,3 +30,37 @@
 >新建了一台准备入狱（域）的win10,dns调好后发现用用户的帐号密码怎么登都报错（计算机名错误），很奇怪，后使用administrator入域成功，切换用户。（原来本来加域流程就是要这么走的）<br><br>
 >在samba端创建一share文件夹并设好权限,管理员访问文件ok，用户怎么都访问不了（明明文件夹在管理员界面权限已经开放），后发现是samba那边share虽然设好了，但其上级/home/aoc/share权限问题。<br><br>
 ![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/Screenshot%20from%202020-06-24%2017-42-34.png)
+
+## 其实还没有结束
+>因为部署成功的版本是：centos7.8 + samba4.4  （3年前的了） 所以要升级<br>
+>现在的版本：centos8.2 + samba4.12 (2020)<br>
+>部署过程：
+```c
+/etc/sysconfig/network-scripts 找到网卡进行配置
+nmcli c reload 重启服务上网
+dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y 加epel仓库
+dnf repolist epel -v 查看版本
+echo centos8-samba > /etc/hostname  重启生效
+# yum -y install dnf-plugins-core
+# yum config-manager --set-enabled PowerTools 开启PowerTools存储库
+# yum install docbook-style-xsl gcc gdb gnutls-devel gpgme-devel jansson-devel \
+      keyutils-libs-devel krb5-workstation libacl-devel libaio-devel \
+      libarchive-devel libattr-devel libblkid-devel libtasn1 libtasn1-tools \
+      libxml2-devel libxslt lmdb-devel openldap-devel pam-devel perl \
+      perl-ExtUtils-MakeMaker perl-Parse-Yapp popt-devel python3-cryptography \
+      python3-dns python3-gpg python36-devel readline-devel rpcgen systemd-devel \
+      tar zlib-devel   安装依赖
+wget https://download.samba.org/pub/samba/stable/samba-4.12.3.tar.gz
+tar -zxvf samba-4.1.12.tar.gz
+cd samba-4.1.12
+./configure && make && make install 编译安装
+/usr/local/samba/bin/samba-tool domain provision --use-rfc2307 --interactive 交互式配置
+cat /usr/local/samba/etc/smb.conf 配置信息
+/usr/local/samba/sbin/samba  开启
+/usr/local/samba/bin/smbclient -L localhost -U% 
+echo “nameserver 127.0.0.1” > /etc/resolv.conf
+/usr/local/samba/bin/samba-tool dns zonelist 127.0.0.1 -U administrator
+cp /usr/local/samba/private/krb5.conf /etc/krb5.conf
+kinit administrator@TESTAD.LOCAL
+```
+>windows ipv4的dns设成域服务器并加域
