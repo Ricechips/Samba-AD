@@ -67,4 +67,4 @@ kinit administrator@TESTAD.LOCAL
 >linux共享目录映射到windows下磁盘
 ![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/IMG_4709.JPG)
 
-[配置文件](https://blog.csdn.net/csdn10086110/article/details/89174589)
+[配置文件详解](https://blog.csdn.net/lileiyuyanqin/article/details/79359515)
