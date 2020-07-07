@@ -63,7 +63,7 @@ echo “nameserver 127.0.0.1” > /etc/resolv.conf
 cp /usr/local/samba/private/krb5.conf /etc/krb5.conf
 kinit administrator@TESTAD.LOCAL
 ```
->windows ipv4的dns设成域服务器并加域<br>
+>windows ipv4的dns设成域服务器并加域（防火墙）<br>
 >linux共享目录映射到windows下磁盘
 ![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/IMG_4709.JPG)
 
