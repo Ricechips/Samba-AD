@@ -68,3 +68,4 @@ kinit administrator@TESTAD.LOCAL
 ![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/IMG_4709.JPG)
 
 [配置文件详解](https://blog.csdn.net/lileiyuyanqin/article/details/79359515)
+ps:用于共享的目录所有者设为：3000000:users 实现windows端文件夹属性->安全权限管理 linux目录权限和win文件夹权限同步 everyone=777
