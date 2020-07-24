@@ -68,4 +68,8 @@ kinit administrator@TESTAD.LOCAL
 ![avatar](https://github.com/Ricechips/Samba-AD/blob/master/PrtScn/IMG_4709.JPG)
 
 [配置文件详解](https://blog.csdn.net/lileiyuyanqin/article/details/79359515)<br>
-ps:用于共享的目录所有者设为：3000000:users 实现windows端文件夹属性->安全权限管理 <br>linux目录权限和win文件夹权限同步 everyone=777 <br>登域的时候注意\和/
+ps:用于共享的目录所有者设为：3000000:users 实现windows端文件夹属性->安全权限管理 <br>linux目录权限和win文件夹权限同步 everyone=777 <br>登域的时候注意\和/ 
+
+## 信任关系
+默认情况下，每隔30天机器密码会自动更新一次。在需要更新密码时，客户端会尝试去联系域控，如果一直没能联系到域控，就会造成密码更新失败。这时由于在AD中的那份机器密码已过期，客户端又不能成功更新密码，就会发生掉域问题。<br>
+为预防这种情况，我们可以在Default Domain Policy中设置停止机器账号密码改变。这条组策略的具体路径为：Computer Configuration\Policies\Security Settings\Local Policies\Security Options\Domain Member: Disable machine account password changes
